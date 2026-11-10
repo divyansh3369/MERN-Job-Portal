@@ -4,6 +4,8 @@ const cors = require('cors');
 const path = require('path');
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 require('dotenv').config();
+console.log("Username:", process.env.DB_USER);
+console.log("Password loaded:", process.env.DB_PASSWORD ? "YES" : "NO");
 
 const port = process.env.PORT || 5000;
 
@@ -13,7 +15,7 @@ app.use(cors({
   credentials: true
 }));
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@job-portal.hqdzpij.mongodb.net/?appName=Job-portal`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.ikcmhew.mongodb.net/?appName=Job-portal`;
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
